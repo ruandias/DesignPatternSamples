@@ -26,7 +26,7 @@ namespace DesignPatternSamples.Infra.Repository.Detran
             return result;
         }
 
-        public DetranVerificadorPontuacaoFactory Register(string UF, Type repository)
+        public IDetranVerificadorPontuacaoFactory Register(string UF, Type repository)
         {
             if (!_Repositories.TryAdd(UF, repository))
             {
