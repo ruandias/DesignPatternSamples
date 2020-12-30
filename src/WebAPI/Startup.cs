@@ -47,7 +47,7 @@ namespace DesignPatternSamples.WebAPI
             services.AddDependencyInjection()
                 .AddAutoMapper();
 
-            /*Cache distribuído FAKE*/
+            /*Cache distribuï¿½do FAKE*/
             services.AddDistributedMemoryCache();
             
             services.AddControllers();
@@ -89,6 +89,8 @@ namespace DesignPatternSamples.WebAPI
 
             app.UseDetranVerificadorDebitosFactory();
 
+            app.UseDetranVerificadorPontuacaoFactory();
+
             app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             app.UseMvc();
@@ -101,9 +103,14 @@ namespace DesignPatternSamples.WebAPI
         {
             return services
                 .AddTransient<IDetranVerificadorDebitosService, DetranVerificadorDebitosServices>()
+                .AddTransient<IDetranVerificadorPontuacaoService, DetranVerificadorPontuacaoServices>()
                 .Decorate<IDetranVerificadorDebitosService, DetranVerificadorDebitosDecoratorCache>()
+                .Decorate<IDetranVerificadorPontuacaoService, DetranVerificadorPontuacaoDecoratorCache>()
                 .Decorate<IDetranVerificadorDebitosService, DetranVerificadorDebitosDecoratorLogger>()
+                .Decorate<IDetranVerificadorPontuacaoService, DetranVerificadorPontuacaoDecoratorLogger>()
                 .AddSingleton<IDetranVerificadorDebitosFactory, DetranVerificadorDebitosFactory>()
+                .AddSingleton<IDetranVerificadorPontuacaoFactory, DetranVerificadorPontuacaoFactory>()
+                .AddTransient<DetranRJVerificadorPontuacaoRepository>()
                 .AddTransient<DetranPEVerificadorDebitosRepository>()
                 .AddTransient<DetranSPVerificadorDebitosRepository>()
                 .AddTransient<DetranRJVerificadorDebitosRepository>()
@@ -130,6 +137,14 @@ namespace DesignPatternSamples.WebAPI
                 .Register("RJ", typeof(DetranRJVerificadorDebitosRepository))
                 .Register("SP", typeof(DetranSPVerificadorDebitosRepository))
                 .Register("RS", typeof(DetranRSVerificadorDebitosRepository));
+
+            return app;
+        }
+        
+        public static IApplicationBuilder UseDetranVerificadorPontuacaoFactory(this IApplicationBuilder app)
+        {
+            app.ApplicationServices.GetService<IDetranVerificadorPontuacaoFactory>()
+                .Register("RJ", typeof(DetranRJVerificadorPontuacaoRepository));
 
             return app;
         }
