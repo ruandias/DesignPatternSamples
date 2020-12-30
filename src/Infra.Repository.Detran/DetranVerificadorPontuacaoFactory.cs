@@ -20,7 +20,7 @@ namespace DesignPatternSamples.Infra.Repository.Detran
 
             if (_Repositories.TryGetValue(UF, out Type type))
             {
-                result = (IDetranVerificadorPontuacaoFactory) _ServiceProvider.GetService(type);
+                result = _ServiceProvider.GetService(type) as IDetranVerificadorPontuacaoRepository;
             }
 
             return result;

@@ -23,7 +23,7 @@ namespace DesignPatternSamples.Application.Decorators
         public async Task<IEnumerable<Pontuacao>> ConsultarPontuacao(Condutor condutor)
         {
             Stopwatch watch = Stopwatch.StartNew();
-            _Logger.LogInformation($"Iniciando a execução do método ConsultarPontuacap({condutor})");
+            _Logger.LogInformation($"Iniciando a execução do método ConsultarPontuacao({condutor})");
             var result = await _Inner.ConsultarPontuacao(condutor);
             watch.Stop(); 
             _Logger.LogInformation($"Encerrando a execução do método ConsultarPontuacao({condutor}) {watch.ElapsedMilliseconds}ms");
