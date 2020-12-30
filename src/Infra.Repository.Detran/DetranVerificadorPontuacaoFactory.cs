@@ -13,14 +13,14 @@ namespace DesignPatternSamples.Infra.Repository.Detran
         {
             _ServiceProvider = serviceProvider;
         }
-        
-        public IDetranVerificadorPontuacaoRepository Create(string UF)
+
+        public IDetranVerificadorPontuacaoFactory Create(string UF)
         {
-            IDetranVerificadorPontuacaoRepository result = null;
+            IDetranVerificadorPontuacaoFactory result = null;
 
             if (_Repositories.TryGetValue(UF, out Type type))
             {
-                result = _ServiceProvider.GetService(type) as IDetranVerificadorPontuacaoRepository;
+                result = (IDetranVerificadorPontuacaoFactory) _ServiceProvider.GetService(type);
             }
 
             return result;
