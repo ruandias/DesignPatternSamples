@@ -17,7 +17,7 @@ namespace DesignPatternSamples.Application.Implementations
 
         public Task<IEnumerable<Pontuacao>> ConsultarPontuacao(Condutor condutor)
         {
-            var repository = _Factory.Create(condutor.UF);
+            IDetranVerificadorPontuacaoRepository repository = _Factory.Create(condutor.UF);
             return repository.ConsultarPontuacao(condutor);
         }
     }
