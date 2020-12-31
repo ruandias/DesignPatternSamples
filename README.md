@@ -1,32 +1,53 @@
-# DesignPatternSamples
-|Branch|Build|
-|-:|-|
-|Develop|![.NET Core](https://github.com/fructuoso/DesignPatternSamples/workflows/.NET%20Core/badge.svg?branch=develop)|
-|Main|![.NET Core](https://github.com/fructuoso/DesignPatternSamples/workflows/.NET%20Core/badge.svg?branch=main)|
+<h2 align="center">DesignPatternSamples</h2>
 
-Aplicação de exemplo de aplicação de Design Patterns na prática em um projeto WebAPI .NET Core 3.1 utilizada na palestra "Aplicando design patterns na prática com C#" ([Link Apresentação](Apresenta%C3%A7%C3%A3o/Aplicando%20design%20patterns%20na%20pr%C3%A1tica%20com%20C%23.pdf))
+___
 
-## Testes de Cobertura
 
-Passo a passo sobre como executar os testes unitários (e calcular o code coverage) localmente antes de realizar o commit.
 
-<u>Obs.: O VS2019 possui esta funcionalidade nativamente, porém ela só está habilitada para a versão Enterprise segundo a [documentação](https://docs.microsoft.com/pt-br/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested?view=vs-2019) da própria Microsoft.</u>
 
-### Pré-Requisitos
+<h3 align="center">
+  <a href="#about">Sobre</a>&nbsp;|&nbsp;
+  <a href="#reason">Motivo</a>&nbsp;|&nbsp;
+  <a href="#requirements">Requisitos</a>&nbsp;|&nbsp;
+  <a href="#technologies">Tecnologias</a>&nbsp;|&nbsp;
+	<a href="#references">Referências</a>&nbsp;|&nbsp;
+</h3>
 
-Para gerar o relatório é necessário instalar o **dotnet-reportgenerator-globaltool**
+___
 
-```script
-dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.6.1
-````
 
-### Execução
+<h2 id="about">🔎 Sobre</h2>
 
-Executar o **.bat** para realizar a execução dos testes automatizados com a extração do relatório de cobertura na sequência.
+Projeto aplicando Design Patterns na prática em um projeto WebAPI .NET Core 3.1 utilizada na palestra "Aplicando design patterns na prática com C#" <a href="https://github.com/fructuoso">By Victor Fructuoso</a>
 
-```bat
-$ test-coverage.bat
+<h2 id="reason">🎯 Motivo</h2>
+
+O objetivo aqui é aprender, praticar e comprovar minhas habilidades em Design Patterns. Desenvolvidas durante o Bootcamp Decola Dev Avanade 2021, que foi proposta através da DigitalInnovationOne.
+
+<h2 id="requirements">⚙ Requisitos</h2>
+
+git clone ou baixar esse repositório, depois disso:
+
+1. 
+```bash
+dotnet clean
+dotnet build
+dotnet run
 ```
+E utilizar uma ferramenta, como o Postman, para realizar requisições HTTP. 😊
+
+Ou utilizar o swagger para fazer seus Testes 😊
+
+<h2 id="technologies">🚀 Tecnologias</h2>
+
+O projeto foi desenvolvido em:
+
+- .NET Core 3.1
+
+
+<h2 id="references">📚 Referências</h2>
+<h3> Vou deixar aqui os Design Patterns que o autor escreveu em seu repositório original -> <a href="https://github.com/fructuoso">Victor Fructuoso</a></h3>
+
 
 ## Padrões na Prática
 
